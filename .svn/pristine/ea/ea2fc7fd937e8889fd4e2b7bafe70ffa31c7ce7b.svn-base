@@ -1,0 +1,80 @@
+import React, { Component } from 'react';
+import { Container,Row,Dropdown, Button,InputGroup,FormControl} from 'react-bootstrap';
+
+class KountInfo extends Component {
+    constructor(props) {
+        super(props);
+
+    }
+
+    
+
+    render() {
+        return (
+<Container>
+<Row><h5><b>COUNT</b></h5></Row>
+<Row><h6><b>Citation #</b>  12345678</h6></Row>
+<Row>
+
+<Dropdown>
+  <Dropdown.Toggle variant="secondary" id="dropdown-basic" >
+    Select Count      
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+    <Dropdown.Item href="#/action-1">Speeding Over Saturation limit 1- 10</Dropdown.Item>
+    <Dropdown.Item href="#/action-2">Speeding Over Saturation limit 20- 40</Dropdown.Item>
+    <Dropdown.Item href="#/action-3">Speeding Over Saturation limit 40- 100</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
+
+</Row>
+<Row>
+    <Button variant="success">Guilty</Button>
+    <Button variant="success">Not Guilty</Button>
+    <Button variant="secondary">Conviction</Button>
+    <Button variant="success">Supervision</Button>
+</Row>
+
+<Row>
+            <Button variant="light"> Amend Charge </Button>
+                <Button variant="light"> DISMISS/NOLLE </Button>
+                <Button variant="light"> ASSES FINES ON CASE </Button>
+
+            </Row>
+
+    <Row>
+    <Button variant="primary">PREVIOUS CHANGE</Button>
+    <Button variant="primary">NEXT CHANGE</Button>
+    </Row>
+
+
+    <Row>
+    <InputGroup>
+    
+    <FormControl as="textarea" aria-label="With textarea" />
+  </InputGroup>
+
+  <InputGroup>
+    
+    <FormControl as="textarea" aria-label="With textarea" />
+  </InputGroup>
+    </Row>
+
+    <Row>
+    <Button variant="danger">REST</Button>
+    <Button variant="secondary">Call list for Orders</Button>
+    <Button variant="secondary">Case history</Button>
+
+    <Button variant="secondary">Preview</Button>
+    <Button variant="success">SIGN</Button>
+    </Row>
+
+    
+
+</Container>
+        );
+    }
+}
+
+export default KountInfo;

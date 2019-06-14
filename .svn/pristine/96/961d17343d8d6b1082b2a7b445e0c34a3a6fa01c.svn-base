@@ -1,0 +1,88 @@
+import React,{Component} from 'react';
+import './Login.css';
+import { BrowserRouter as Router, Link, NavLink, Redirect, Prompt} from 'react-router-dom';
+import Route from 'react-router-dom/Route';
+import { Button } from 'react-bootstrap';
+import { Container,Col,Row,Card,Form } from 'react-bootstrap';
+
+import Home from '../../components/traffic/Home';
+
+
+class Login extends Component{
+  state={
+    userName : '',
+    password : '',
+    loggedIn: false
+  }
+
+  changeUsername =(event)=>{
+    this.setState({
+      userName:event.target.value
+    })
+  }
+  changePassword =(event)=>{
+    this.setState({
+      password:event.target.value
+    })  
+  }
+  loginBtnAction=()=>{    
+    if(this.state.userName === 'abc' && this.state.password === '123'){      
+      this.setState({
+        loggedIn:true
+      })
+    }
+    else{
+      alert('Incorrect Credentials');
+      this.setState({
+        loggedIn:false
+      })
+    }
+  } 
+
+  render(){
+    return (   
+       <Router>
+         <div className="Login">
+         <Route path='/' exact strict render={
+           ()=>{
+             return(
+              <Container>
+              <Row>
+              <Col>
+              <Card >
+                <Card.Header><h2>Login</h2></Card.Header>
+                <Card.Body>
+                <Form>
+                  <Form.Group controlId="formBasicUsername">
+                    <Form.Label>Username </Form.Label>
+                    <Form.Control type="text" placeholder="Enter username" onChange={this.changeUsername} />
+                  </Form.Group>
+
+                  <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Enter Password" onChange={this.changePassword} />
+                  </Form.Group>
+
+                  <Button variant="outline-primary">
+                    <NavLink to="/home" onClick={this.loginBtnAction.bind(this)}exact activeStyle={ { color:'white' } }>Login</NavLink>
+                  </Button>
+                </Form>
+                </Card.Body>
+              </Card>
+            </Col>
+            </Row>
+            </Container>
+             );
+           }
+         }/>
+         <Route path="/home" exact strict render={()=>(
+            this.state.loggedIn ? (<Home/>) : (<Redirect to="/"/>)
+         )
+         }/>
+         </div>
+      </Router>
+    );
+  }
+}
+
+export default Login;

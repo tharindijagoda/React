@@ -1,0 +1,109 @@
+import React, { Component } from 'react';
+import {Container, Button, Form, Table, Row } from 'react-bootstrap';
+
+class CourtCall extends Component {
+    constructor(props) {
+        super(props);
+
+    }
+
+    
+    render() {
+        return (
+            <Container>
+
+              <Row>
+<Form> 
+    <Form.Label><b>Court Call</b></Form.Label>
+  <Form.Group controlId="formLocation">
+    <Form.Label>Location</Form.Label>
+    <Form.Control type="text" placeholder="Location" />
+  </Form.Group>
+
+  <Form.Group controlId="formCourtDate">
+    <Form.Label>Court Date</Form.Label>
+    <Form.Control type="text" placeholder="mm/dd/yyyy" />
+  </Form.Group>
+
+  <Form.Group controlId="formCourtTime">
+    <Form.Label>Time</Form.Label>
+    <Form.Control type="text" placeholder="hh:mm AM" />
+  </Form.Group>
+
+  <Form.Group controlId="formCaseNumber">
+    <Form.Label>Case Number</Form.Label>
+    <Form.Control type="text" placeholder="Case number" />
+  </Form.Group>
+ 
+
+
+  <Button variant="secondary" type="button">
+    Search
+  </Button>
+</Form>
+
+</Row>
+
+<Row>
+<Table striped bordered hover>
+  <thead>
+    <tr>
+      <th>Case #</th>
+      <th>Name</th>
+      <th>Checked in</th>
+      <th>Called</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2019TR000001</td>
+      <td>Mark</td>
+      <td><Form.Check type="checkbox" /></td>
+      <td><Form.Check type="checkbox" /></td>
+    </tr>
+    <tr>
+      <td>2019TR000002</td>
+      <td>Jacob</td>
+      <td><Form.Check type="checkbox" /></td>
+      <td><Form.Check type="checkbox" /></td>
+    </tr>
+    <tr>
+      <td>2019TR000003</td>
+      <td >Larry the Bird</td>
+      <td><Form.Check type="checkbox" /></td>
+      <td><Form.Check type="checkbox" /></td>
+    </tr>
+  </tbody>
+</Table>
+
+</Row>
+<Row>
+<Button variant="secondary" type="button">
+    Needs Recall
+  </Button>
+
+  <Button variant="secondary" type="button">
+    Mark called
+  </Button>
+
+</Row>
+<Row>
+
+  <Button variant="primary" type="button">
+    Previous Case
+  </Button>
+
+  <Button variant="primary" type="button">
+    Next Case
+  </Button>
+
+  </Row>
+            </Container>
+        
+        
+        
+        
+        );
+    }
+}
+export default CourtCall;
